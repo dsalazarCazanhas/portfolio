@@ -1,0 +1,41 @@
+<div class="flex items-center gap-4 text-muted-foreground">
+  <!-- Email Section -->
+  <div class="flex items-center gap-2 group mt-3rem">
+    <lucide-icon [img]="MailIcon" class="my-icon"></lucide-icon>
+    <span>{{ email }}</span>
+
+    <button
+      class="ml-2 p-1 rounded transition-all duration-300 hover:scale-105 cursor-pointer"
+      title="Copy email address"
+      (click)="onCopyEmail()"
+    >
+      @if (copySuccess) {
+      <lucide-icon [img]="CheckIcon" class="my-icon"></lucide-icon>
+      } @else {
+      <lucide-icon [img]="CopyIcon" class="my-icon"></lucide-icon>
+      }
+    </button>
+  </div>
+
+  <!-- LinkedIn -->
+  <a
+    [href]="linkedinUrl"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="transition-transform duration-300 hover:scale-110"
+    title="LinkedIn Profile"
+  >
+    <lucide-icon [img]="LinkedinIcon" class="my-icon"></lucide-icon>
+  </a>
+
+  <!-- GitHub -->
+  <a
+    [href]="githubUrl"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="transition-transform duration-300 hover:scale-110"
+    title="GitHub Profile"
+  >
+    <lucide-icon [img]="GithubIcon" class="my-icon"></lucide-icon>
+  </a>
+</div>

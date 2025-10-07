@@ -123,6 +123,13 @@
               </ngx-typed-js>
             </span>
           </div>
+          <app-social
+            [email]="cv().contact.email"
+            [linkedinUrl]="cv().contact.linkedin"
+            [githubUrl]="cv().contact.github"
+            [copySuccess]="copied"
+            (copyEmail)="handleCopyEmail()"
+          ></app-social>
         </div>
 
         <h2 class="text-2xl font-semibold mb-4">About</h2>

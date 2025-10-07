@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { environment } from './environment';
+import { environment } from '../environments/environment.dev';
 import { CV } from './types.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
@@ -10,9 +10,11 @@ import { CredlyBadgeComponent } from './credly/credly';
 
 import { MatDividerModule } from '@angular/material/divider';
 
+import { Social } from './social/social';
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgxTypedJsModule, CredlyBadgeComponent, MatDividerModule],
+  imports: [RouterOutlet, NgxTypedJsModule, CredlyBadgeComponent, MatDividerModule, Social],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -24,6 +26,13 @@ export class App {
   loading = signal(true);
   error = signal<string | null>(null);
   copySuccess = signal(false);
+  copied = false;
+
+  handleCopyEmail() {
+    navigator.clipboard.writeText(this.cv().contact.email);
+    this.copied = true;
+    setTimeout(() => (this.copied = false), 2000);
+  }
 
   theme = signal<'light' | 'dark'>('light');
   toggleTheme() {
