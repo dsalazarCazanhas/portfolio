@@ -1,0 +1,75 @@
+<div class="body">
+  <div class="banner-educativo">
+    <lucide-angular [img]="TriangleAlert" />
+    THIS IS AN EDUCATIONAL EXAMPLE - DO NOT ENTER REAL DATA
+    <lucide-angular [img]="TriangleAlert" />
+  </div>
+
+  <div class="container">
+    <div class="logo">
+      <h1>facebook</h1>
+    </div>
+
+    <div class="warnings-container">
+      <!-- Left warning -->
+      <div class="warning-box">
+        <h3>🔐 Secure Login Tips</h3>
+        <ul>
+          <li>Always verify the website URL before entering your credentials.</li>
+          <li>Never share your password with anyone.</li>
+          <li>Avoid using public Wi-Fi for logging into sensitive accounts.</li>
+          <li>Use two-factor authentication when available.</li>
+        </ul>
+      </div>
+
+      <!-- Login box -->
+      <div class="login-box">
+        <form onsubmit="return false;">
+          <div class="input-group">
+            <input type="text" placeholder="Email or phone number" autocomplete="email" />
+          </div>
+          <div class="input-group">
+            <input type="password" placeholder="Password" autocomplete="current-password" />
+          </div>
+          <button type="submit" class="login-button">Log In</button>
+          <div class="forgot-password">
+            <a href="#">Forgot your password?</a>
+          </div>
+          <div class="divider"></div>
+          <div class="create-account">
+            <button type="button" class="create-button">Create new account</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right warning -->
+      <div class="warning-box">
+        <h3>🛡️ Account Creation Safety</h3>
+        <ul>
+          <li>Use a strong password (12+ characters, mix of letters, numbers, and symbols).</li>
+          <button class="check-password-btn" (click)="openPasswordModal()">
+            Check password strength
+          </button>
+          <li>Do not reuse passwords from other accounts.</li>
+          <li>Keep your recovery email and phone number up to date.</li>
+          <li>Beware of phishing links that mimic registration pages.</li>
+        </ul>
+      </div>
+
+      <!-- Password Modal -->
+      @if (showPasswordModal) {
+      <div class="modal" (click)="onBackdropClick($event)">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          <span class="close" (click)="closePasswordModal()">&times;</span>
+          <div class="modal-icon">⚠️</div>
+          <h2>Security Warning</h2>
+          <p>
+            Never enter your real password on websites claiming to check its strength. Use password
+            managers or trusted browser tools instead.
+          </p>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

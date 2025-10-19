@@ -1,0 +1,156 @@
+<main class="main">
+  <!-- Theme Toggle -->
+  <button
+    (click)="toggleTheme()"
+    class="px-4 py-2 rounded border shadow fixed top-4 right-4 cursor-pointer"
+  >
+    @if (theme() === 'dark'){
+    <lucide-icon [img]="SunIcon" />
+    } @else if(theme() === 'light'){
+    <lucide-icon [img]="MoonIcon" />
+    }
+  </button>
+  <!-- End of theme switcher -->
+
+  @if (loading()) {
+  <div class="spinner-overlay">
+    <div class="spinner"></div>
+  </div>
+  <div class="min-h-screen bg-white dark:bg-slate-950 p-6 animate-pulse">
+    <div class="max-w-4xl mx-auto space-y-8">
+      <div class="space-y-4">
+        <div class="skeleton h-12 w-[250px]"></div>
+        <div class="skeleton h-6 w-[180px]"></div>
+        <div class="flex space-x-4">
+          <div class="skeleton h-10 w-10"></div>
+          <div class="skeleton h-10 w-10"></div>
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="skeleton h-8 w-[100px] mb-4"></div>
+      <div class="skeleton h-[100px] w-full"></div>
+
+      <div class="skeleton h-8 w-[150px] mb-4"></div>
+      <div class="skeleton h-[80px] w-full mb-4"></div>
+      <div class="skeleton h-[80px] w-full mb-4"></div>
+
+      <div class="separator"></div>
+
+      Section 3
+      <div class="skeleton h-8 w-[120px] mb-4"></div>
+      <div class="skeleton h-[60px] w-full mb-4"></div>
+      <div class="skeleton h-[60px] w-full mb-4"></div>
+
+      <div class="separator"></div>
+
+      Tags Section
+      <div class="skeleton h-8 w-[100px] mb-4"></div>
+      <div class="flex flex-wrap gap-2">
+        <div class="skeleton h-[30px] w-[100px]"></div>
+        <div class="skeleton h-[30px] w-[100px]"></div>
+        <div class="skeleton h-[30px] w-[100px]"></div>
+        <div class="skeleton h-[30px] w-[100px]"></div>
+        <div class="skeleton h-[30px] w-[100px]"></div>
+      </div>
+    </div>
+  </div>
+  } @else if (error()) {
+  <div class="flex items-center justify-center text-red-500">
+    {{ error() }}
+  </div>
+  } @else {
+  <!-- contenido -->
+  <div class="content">
+    <div class="min-h-screen bg-background p-6">
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="space-y-4">
+          <h1 class="text-2xl/7 font-bold sm:truncate sm:text-3xl sm:tracking-tight">
+            {{ cv().name }}
+          </h1>
+          <div class="mt-5 mb-10">
+            <span class="text-xl text-muted-foreground inline-block min-h-[1.4rem]">
+              <ngx-typed-js
+                [strings]="cv().title"
+                [typeSpeed]="100"
+                [backSpeed]="60"
+                [backDelay]="1000"
+                [loop]="true"
+                [showCursor]="false"
+              >
+                <h1 class="typing"></h1>
+              </ngx-typed-js>
+            </span>
+          </div>
+          <app-social
+            [email]="cv().contact.email"
+            [linkedinUrl]="cv().contact.linkedin"
+            [githubUrl]="cv().contact.github"
+            [copySuccess]="copied"
+            (copyEmail)="handleCopyEmail()"
+          ></app-social>
+        </div>
+
+        <h2 class="text-2xl font-semibold mb-4">About</h2>
+        <section class="rounded-lg border bg-card text-card-foreground shadow-sm p-6 mb-4">
+          <p>{{ cv().about }}</p>
+        </section>
+
+        <div class="separator"></div>
+
+        <h2 class="text-2xl font-semibold mb-4">Experience</h2>
+        @for (exp of cv().experience; track $index) {
+        <section class="rounded-lg border bg-card text-card-foreground shadow-sm p-6 mb-4">
+          <p>{{ exp }}</p>
+        </section>
+        }
+
+        <div class="separator"></div>
+
+        <h2 class="text-2xl font-semibold mb-4">Education</h2>
+        @for (edu of cv().education; track $index) {
+        <section class="rounded-lg border bg-card text-card-foreground shadow-sm p-6 mb-4">
+          <p>{{ edu.name }}</p>
+          @if (edu.badge) {
+          <div class="credly-badge mt-5">
+            <app-credly-badge [badgeId]="edu.loader"></app-credly-badge>
+          </div>
+          }
+        </section>
+        }
+
+        <div class="separator"></div>
+
+        <h2 class="text-2xl font-semibold mb-4">Skills</h2>
+        <section class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+          <div class="flex flex-wrap gap-2">
+            @for (skill of cv().skills; track $index) {
+            <span
+              class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300"
+            >
+              {{ skill }}
+            </span>
+            }
+          </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <div class="max-w-4xl mx-auto text-center">
+          <div
+            class="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full border border-border"
+          >
+            <lucide-icon [img]="BrickWallShieldIcon" />
+            <a href="/cyberproject">
+              <span class="text-2xl font-semibold text-foreground"
+                >Cybersecurity Culture Project</span
+              ></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</main>

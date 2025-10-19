@@ -1,0 +1,175 @@
+<div class="min-h-screen bg-background">
+  <!-- Hero Section -->
+  <div class="bg-gradient-to-b from-primary/10 to-background py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <div
+        class="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full mb-6 border border-border"
+      >
+        <!-- Icon placeholder -->
+        <lucide-angular [img]="ShieldCheck" />
+        <span class="text-sm font-medium text-foreground"> Cybersecurity Educational Project </span>
+      </div>
+
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 text-foreground">
+        Learn to Identify <br />
+        <span class="text-primary">Fake Websites</span>
+      </h1>
+
+      <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+        An educational tool designed to help recognize fake websites and stay safe from online
+        scams.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button
+          (click)="goToFakeLogin()"
+          class="btn btn-gradient btn-secondary px-6 py-3 rounded-lg cursor-pointer font-medium inline-flex items-center justify-center"
+        >
+          <lucide-angular [img]="Eye" />
+          <span class="ml-2">View Fake Site Demo</span>
+        </button>
+
+        <a
+          routerLink="/guide"
+          class="border border-border text-foreground px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center"
+        >
+          <lucide-angular [img]="BookOpen" />
+          <span class="ml-2">Read Security Guide</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 text-foreground">What Will You Learn?</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 bg-card rounded-lg hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+            <lucide-angular [img]="HatGlasses" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-foreground">Identify Fake URLs</h3>
+          <p class="text-muted-foreground">
+            Recognize suspicious domains, non-HTTPS URLs, and other red flags in web addresses.
+          </p>
+        </div>
+
+        <div class="p-6 bg-card rounded-lg hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+            <lucide-angular [img]="Shield" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-foreground">Detect Warning Signs</h3>
+          <p class="text-muted-foreground">
+            Learn to spot spelling mistakes, suspicious layouts, and urgent messages used by
+            scammers.
+          </p>
+        </div>
+
+        <div class="p-6 bg-card rounded-lg hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+            <lucide-angular [img]="BookCheck" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-foreground">Protect Your Data</h3>
+          <p class="text-muted-foreground">
+            Discover best practices to keep your personal and financial information safe online.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <div class="py-20 px-4 bg-muted/50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 text-foreground">How This Tool Works</h2>
+
+      <div class="space-y-6">
+        <div class="p-6 bg-card rounded-lg">
+          <div class="flex items-start gap-4">
+            <div
+              class="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold flex-shrink-0"
+            >
+              1
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-2 text-foreground">Watch the Demo</h3>
+              <p class="text-muted-foreground">
+                Explore a realistic example of a fake Facebook page and its visible warning signs.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-card rounded-lg">
+          <div class="flex items-start gap-4">
+            <div
+              class="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold flex-shrink-0"
+            >
+              2
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-2 text-foreground">Learn the Signs</h3>
+              <p class="text-muted-foreground">
+                Read the detailed guide explaining each red flag and how to identify it.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-card rounded-lg">
+          <div class="flex items-start gap-4">
+            <div
+              class="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold flex-shrink-0"
+            >
+              3
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-2 text-foreground">Practice and Share</h3>
+              <p class="text-muted-foreground">
+                Use this tool to teach others and practice identifying suspicious websites.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="py-20 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6 text-foreground">Start Protecting Yourself Today</h2>
+      <p class="text-lg text-muted-foreground mb-8">
+        The best defense against online scams is education. Learn to spot the dangers before it’s
+        too late.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button
+          (click)="goToFakeLogin()"
+          class="btn btn-gradient btn-secondary px-6 py-3 rounded-lg cursor-pointer font-medium inline-flex items-center justify-center"
+        >
+          View Fake Site Example
+        </button>
+        <a
+          routerLink="/guide"
+          class="border border-border text-foreground px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center"
+        >
+          Read Full Guide
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 border-t border-border">
+    <div class="max-w-6xl mx-auto text-center text-sm text-muted-foreground">
+      <p class="mb-2">
+        <strong>⚠️ IMPORTANT:</strong> This is an educational tool. All examples are fictional and
+        created for learning purposes.
+      </p>
+      <p>Do not enter real data in any of the demos.</p>
+    </div>
+  </footer>
+</div>

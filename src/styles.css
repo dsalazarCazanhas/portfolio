@@ -6,7 +6,7 @@
     --font-sans: InterVariable, sans-serif;
     --font-sans--font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 
-    --background: 0 0% 100%;
+    --background: 0 0% 96%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -30,7 +30,7 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
+    --border: black;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
@@ -73,5 +73,9 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    body {
+      font-family: var(--font-sans);
+      font-feature-settings: var(--font-sans--font-feature-settings);
+    }
   }
 }
